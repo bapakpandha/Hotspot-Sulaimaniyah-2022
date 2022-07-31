@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login Hotspot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="height=device-height, initial-scale=1.0">
+  <meta content='RingRoad' name='Author' />
+  <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/PrayTimes.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <style>
+    @media only screen and (max-width: 360px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        font-size: 11px
+      }
+
+      #timetable td,
+      #timetable th {
+        padding: 5px;
+      }
+
+      tr {
+        margin: 0;
+      }
+    }
+
+    @media screen and (max-width: 220px) {
+      .onoff {
+        margin: -35px 5px 5px 5px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-home">
+  <div id="main" class="main">
+    <div class="box">
+      <center><img src="img/logo.png" style="margin-bottom: 0px;width: 250px;background-color: white;padding: 10px 16px;border-radius: 20px;"></center>
+      <!-- <small>Internet Unlimited Tanpa Batas Kuota</small> -->
+    </div>
+    <div class="rainbow-line"></div>
+    <div id="Date"></div>
+    <div id="jamtime">
+      <ul class="jamtime">
+        <li id="hours"> </li>
+        <li id="point">:</li>
+        <li id="min"> </li>
+        <li id="point">:</li>
+        <li id="sec"> </li>
+      </ul>
+    </div>
+    <div id="prayss" class="prayss">
+      <div class="prayss__inner">
+        <h3 class="title-kota">JADWAL SHOLAT D.I YOGYAKARTA</h3>
+        <button class="Show onoff birumuda">On</button>
+        <button class="Hide onoff orange">Off</button>
+        <div id="JadwalSholat" class="tablex">
+          <div id="table"></div>
+          <div id="clockdiv">
+            <h2>MENUJU RAMADHAN 1444H</h2>
+            <div><span class="days"></span>
+              <div class="smalltext">Hari</div>
+            </div>
+            <div><span class="hours"></span>
+              <div class="smalltext">Jam</div>
+            </div>
+            <div><span class="minutes"></span>
+              <div class="smalltext">Menit</div>
+            </div>
+            <div><span class="seconds"></span>
+              <div class="smalltext">Detik</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box" style="margin-top:5px;">
+      <button id="btnvrc" class="small-button orange" onclick="voucher();"><i class="icon icon-barcode">&#xe815
+        </i>Ağabey</button>
+      <button id="btnmem" class="small-button birumuda" onclick="member();"><i class="icon icon-user">&#xe801
+        </i>Talebe</button>
+    </div>
+    <div class="box" id="infologin">
+    </div>
+    <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+      <input class="username" name="username" type="text" value="$(username)" autocomplete="off" required />
+      <input class="password" name="password" placeholder="Password" autocomplete="off" type="hidden" />
+      $(if trial == 'yes')
+      <button class="small-button hijau"
+        onclick="location.href = '$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)';"><i
+          class="icon icon-thumbs-up">&#xe808 </i>Pengguna Tamu</button>
+      $(else)
+      <button class="small-button hijau disabled"><i class="icon icon-block">&#xe810 </i>Trial Habis</button>
+      $(endif)
+      <button class="small-button hijau" type="submit"><i class="icon icon-login">&#xe80d </i>Login</button>
+    </form>
+    $(if error)
+    <div id="notice" class="notice">
+      <script type="text/javascript">
+        var error = "$(error)";
+        var error1 = "user $(username) has reached uptime limit";
+        var error2 = "user $(username) has reached traffic limit";
+        var error3 = "no valid profile found";
+        var error4 = "invalid username or password";
+        var error5 = "user &lt;$(username)&gt; not found";
+        var error6 = "simultaneous session limit reached";
+        if (error == error1 || error == error2 || error == error3) {
+          window.location.href = "expired.html";
+        } else if (error == error4) {
+          document.getElementById("notice").innerHTML = "Mohon Periksa Informasi Login Anda";
+        } else if (error == error5) {
+          document.getElementById("notice").innerHTML = "Username Tidak Ditemukan";
+        } else if (error == error6) {
+          document.getElementById("notice").innerHTML = "Jumlah Session Login Telah Dibatasi";
+        } else {
+          document.getElementById("notice").innerHTML = "$(error)";
+        } 
+      </script>
+    </div>
+    $(endif)
+    <div class="quotess">
+      <blockquote>
+        <p><i class="icon icon-quote-left">&#xe817;</i> Wahai orang - orang yang beriman, diwajibkan atas kalian
+          berpuasa sebagaimana telah diwajibkan atas orang - orang sebelum kalian agar kalian menjadi orang yang
+          bertaqwa.</p>
+        <cite>QS. Al Baqarah: 183</cite>
+      </blockquote>
+      <blockquote>
+        <p><i class="icon icon-quote-left">&#xe817;</i> Barangsiapa yang berpuasa pada bulan Ramadan karena iman dan
+          mengharap pahala (ridha Allah), maka diampuni dosa - dosanya yang terdahulu.</p>
+        <cite>HR. Bukhari</cite>
+      </blockquote>
+      <blockquote>
+        <p><i class="icon icon-quote-left">&#xe817;</i> Ada tiga golongan orang yang tidak ditolak doanya mereka: orang
+          yang berpuasa hingga berbuka, pemimpin yang adil dan doanya orang yang dizalimi.</p>
+        <cite>HR. Tirmidzi</cite>
+      </blockquote>
+      <blockquote>
+        <p><i class="icon icon-quote-left">&#xe817;</i> Wahai mereka yang beriman, mintalah pertolongan kepada Allah
+          dengan sabar dan solat. Sesungguhnya Allah bersama - sama dengan orang yang sabar.</p>
+        <cite>QS. Al Baqarah: 153</cite>
+      </blockquote>
+    </div>
+    <div class="box">
+      <i>&copy; <script>document.write(new Date().getFullYear())</script> Pesantren Mahasiswa Sulaimaniyah Yogyakarta</i><br />
+      <i>Powered by <a style="color:#000; text-decoration:underline;"
+          href="https://uicci.wordpress.com/">Mikhmon</a></i>
+      <!-- Tolong jangan dihilangkan bagian ini-->
+    </div>
+  </div>
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+  <script type="text/javascript" src="md5.js"></script>
+  <script type="text/javascript">
+    function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+    }
+  </script>
+  $(endif)
+  <script type="text/javascript">
+    document.login.username.focus();
+    var infologin = document.getElementById('infologin');
+    infologin.innerHTML = "Masukkan Username";
+    var username = document.login.username;
+    var password = document.login.password;
+    username.placeholder = "Username Abi";
+    // set password = username
+    function setpass() {
+      var user = username.value
+      user = user.toLowerCase(); // voucher huruf kecil
+      //user = user.toUpperCase(); // VOUCHER HURUF BESAR
+      username.value = user;
+      password.value = user;
+    }
+    username.onkeyup = setpass;
+    // change to voucher mode
+    function voucher() {
+      username.focus();
+      username.onkeyup = setpass;
+      username.placeholder = "Username Abi";
+      password.type = "hidden";
+      infologin.innerHTML = "Masukkan Info Username";
+    }
+    // change to member mode
+    function member() {
+      function setuser () {
+      var user = username.value
+      user = user.toLowerCase();
+      username.value = user;
+      }
+      username.focus();
+      username.onkeyup = setuser;
+      username.placeholder = "Username";
+      password.type = "password";
+      infologin.innerHTML = "Masukkan Username dan Password";
+    }
+  </script>
+  <script type="text/javascript">
+    // Set Jadwal Sholat call PrayTimes.js
+    var date = new Date();
+    prayTimes.setMethod('MWL'); // Calculation Methods
+    prayTimes.tune({ fajr: 2, dhuhr: 2, asr: 2, maghrib: 2, isha: 2 }); // ihtiyati (faktor kehati-hatian) sebesar 2 menit
+    var times = prayTimes.getTimes(date, [-7.7654212671137, 110.38868497900411,], 7.00); // Kota Tangerang latitude https://github.com/benangmerah/wilayah/blob/master/datasources/daftar-nama-daerah.csv
+    var list = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+    var nama = ['Subuh', 'Dhuhur', 'Ashar', 'Maghrib', 'Isya'];
+    var html = '<table id="timetable"><tr>';
+
+    for (var i in list) {
+      // html += '<tr><td>'+ list[i]+ '</td>';
+      html += '<td><span>' + nama[i] + '</span><br/>' + times[list[i].toLowerCase()] + '</td>';
+    }
+    html += '</tr></table>';
+    document.getElementById('table').innerHTML = html;
+  </script>
+  <script type="text/javascript">
+    // Set Tanggal dan Jam
+    $(document).ready(function () {
+      // Create two variable with the names of the months and days in an array
+      var monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      var dayNames = ["Ahad", "Senin", "Selasa", "Rabu", "Kamis", "Juma't", "Sabtu"]
+      // Create a newDate() object
+      var newDate = new Date();
+      // Extract the current date from Date object
+      newDate.setDate(newDate.getDate());
+      // Output the day, date, month and year    
+      $('#Date').html(dayNames[newDate.getDay()] + ", " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+      setInterval(function () {
+        // Create a newDate() object and extract the seconds of the current time on the visitor's
+        var seconds = new Date().getSeconds();
+        // Add a leading zero to seconds value
+        $("#sec").html((seconds < 10 ? "0" : "") + seconds);
+      }, 1000);
+
+      setInterval(function () {
+        // Create a newDate() object and extract the minutes of the current time on the visitor's
+        var minutes = new Date().getMinutes();
+        // Add a leading zero to the minutes value
+        $("#min").html((minutes < 10 ? "0" : "") + minutes);
+      }, 1000);
+
+      setInterval(function () {
+        // Create a newDate() object and extract the hours of the current time on the visitor's
+        var hours = new Date().getHours();
+        // Add a leading zero to the hours value
+        $("#hours").html((hours < 10 ? "0" : "") + hours);
+      }, 1000);
+    }); 
+  </script>
+  <script type="text/javascript">
+    // Script Menuju Ramadhan
+    var deadline = 'Mar 22 2023 00:00:00 GMT+0700';
+    run_clock('clockdiv', deadline);
+  </script>
+  <script>
+    // Set Show hide Jadwal
+    $('.Hide').click(function () {
+      $('#JadwalSholat').show(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+    });
+    $('.Show').click(function () {
+      $('#JadwalSholat').hide(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+    });
+  </script>
+  <!--script>
+$(document).ready(function() {
+window.setTimeout(function() {
+$(".notice").fadeTo(1000, 0).slideUp(1000, function() {
+$(this).remove();
+});
+}, 5000);
+});
+</script-->
+  <script>
+    // Set Blockquote FadeIn FadeOut
+    setInterval(function () {
+      var $quotes = $('blockquote'),
+        $quoteIn = $('blockquote.fade-in'),
+        $quoteOut = $quoteIn.next();
+
+      // If we've reached the end of all out quotes, default back
+      // to the first one.
+      $quoteOut = $quoteOut.length > 0 ? $quoteOut : $quotes.eq(0);
+
+      // Switch animation classes on the quotes.
+      $quoteIn.removeClass('fade-in').addClass('fade-out');
+      $quoteOut.removeClass('fade-out').addClass('fade-in');
+    }, 15000);
+    // Show the first quote, or you could add the class in the mark-up
+    // by default.
+    $('blockquote').eq(0).addClass('fade-in');
+  </script>
+</body>
+
+</html>
