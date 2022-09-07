@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Status Hotspot | Yayasan Tahfidz Sulaimaniyah</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/script_min.js"></script>
+    <link rel="stylesheet" href="style_status_min.css">
+</head>
+
+<body class="bg-home">
+
+    <div id="welcome-screen">
+        <style>
+            #welcome-screen {
+                position: fixed;
+                overflow: hidden;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99999;
+                background: #fff;
+            }
+
+            #welcome-screen-background {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: #4263C1;
+            }
+
+            #welcome-screen-foreground {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #welcome-screen-logo {
+                position: relative;
+                overflow: hidden;
+                width: 75%;
+                height: 100%x;
+                max-width: 500px;
+                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #welcome-screen-logo-image {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            #welcome-screen-logo-cover {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: #4263C1;
+                opacity: 0;
+            }
+
+            #welcome-screen.welcome-screen-state-outro {
+                background: none;
+            }
+
+            #welcome-screen.welcome-screen-state-done {
+                display: none;
+            }
+
+            .welcome-screen-state-outro #welcome-screen-logo {
+                animation: welcome-screen-outro-logo 300ms 0ms both ease;
+            }
+
+            @keyframes welcome-screen-outro-logo {
+                0% {
+                    opacity: 1
+                }
+
+                100% {
+                    opacity: 0
+                }
+            }
+
+            .welcome-screen-state-outro #welcome-screen-background {
+                animation: welcome-screen-outro-background 900ms reverse both cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+            @keyframes welcome-screen-outro-background {
+                0% {
+                    transform: translateX(-100vw);
+                }
+
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            .welcome-screen-state-loop #welcome-screen-logo-cover {
+                animation: welcome-screen-loop-logo-cover 2200ms infinite ease-in-out;
+                opacity: 0.85;
+            }
+
+            @keyframes welcome-screen-loop-logo-cover {
+                0% {
+                    transform: translateX(-600px)
+                }
+
+                50% {
+                    transform: translateX(600px)
+                }
+
+                100% {
+                    transform: translateX(600px)
+                }
+            }
+        </style>
+        <div id="welcome-screen-background"></div>
+        <div id="welcome-screen-foreground">
+            <div id="welcome-screen-logo">
+                <img id="welcome-screen-logo-image" src="img/logo_putih.png" alt="">
+                <div id="welcome-screen-logo-cover"></div>
+            </div>
+        </div>
+        <script>
+            $("#welcome-screen").addClass("welcome-screen-state-loop");
+            $(document).ready(function () {
+                $(window).on('load', function () {  
+                    setTimeout(function () {
+                        $("#welcome-screen").removeClass("welcome-screen-state-loop");
+                        $("#welcome-screen").addClass("welcome-screen-state-outro");
+                    }, 1000);
+                    console.log('All assets are loaded')
+                })
+
+                setTimeout(function () {
+                    $("#welcome-screen").removeClass("welcome-screen-state-outro");
+                    $("#welcome-screen").addClass("welcome-screen-state-done");
+                }, 3000);
+
+            });
+        </script>
+    </div>
+
+    <nav id="tempat_nav" class="navigasi">
+        <div id="topNav" class="wrapper_navigasi">
+            <div id="nav_kecil" class="kecil">
+                <div id="isi_nav_kecil">
+                    <div id="isi_tulisan_nav_kecil">
+                        <div id="tulisan_logo">
+                            <span id="logo_uicci">
+                                <span
+                                    style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img
+                                        alt="" aria-hidden="true"
+                                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2735%27%20height=%2735%27/%3e"
+                                        style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span>
+                                <img id="logo_uicci_img" src="img/logo_uicci.webp" alt="Logo UICCI">
+                            </span>
+                            <p id="tulisan_UICCI" class="link_hover">
+                                United Islamic Cultural Centre of Indonesia
+                            </p>
+                        </div>
+                        <div id="notifikasi" class="link_hover">
+                            <div id="wrapper_notifikasi">
+                                <a id="clickable_notifikasi" href="">
+                                    <span id="angka_notifikasi">
+                                        6
+                                    </span>
+                                    <svg id="logo_notifikasi" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z">
+                                        </path>
+                                    </svg>
+                                    <svg id="animasi_notifikasi" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tombol_nav">
+                        <svg id="logo_menu" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"  class="link_hover" data-icon="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div id="expanded_nav" class="max-h-0">
+                    <div id="full_wrapper_expanded_nav">
+                        <div id="wrapper_isi_expanded_nav">
+                            <ul id="induk_list_expanded">
+                                <li class="list_expanded link_hover">
+                                    <a href="#">Beranda</a>
+                                </li>
+                                <li id="info_uicci_list">
+                                    <div id="info_uicci_expandable">
+                                        <div id="info_uicci_expandable_wrapper">
+                                            <div class="link_hover" id="tulisan_info_uicci_dan_logo">
+                                            <a id="link_info" class="link_hover" href="#link_info">Info UICCI</a>
+                                            <div id="wrapper_logo_expand_info_uicci">
+                                                <svg id="logo_expand_info_uicci" class="" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" data-icon="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"></path>
+                                                </svg>
+                                            </div>
+                                            </div>
+                                            <div id="expanded_info_uicci" class="max-h-0">
+                                                <div id="wrapper_expanded_info_uicci">
+                                                    <ul id="induk_list_wrapper_expanded_info_uicci">
+                                                        <li class="link_hover">Info Uicci</li>
+                                                        <li class="link_hover">Informasi Pendaftaran</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list_expanded link_hover">
+                                    Status Hotspot
+                                </li>
+                                <li class="list_expanded link_hover">
+                                    Berita
+                                </li>
+                                <li class="list_expanded link_hover">
+                                    FAQ
+                                </li>
+                                <li class="list_expanded link_hover">
+
+                                </li>
+                            </ul>
+                        </div>
+                        <span id="background_expanded_nav">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="nav_besar" class="besar">
+                <div id="nav_besar_uicci_dan_logo">
+                    <span id="nav_besar_logo_UICCI">
+                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
+                            <img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2750%27%20height=%2750%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+                        </span>
+                        <img alt="Logo UICCI" srcset="img/logo_uicci.webp 1x, img/logo_uicci.webp 2x" src="img/logo_uicci.png" decoding="async" data-nimg="intrinsic" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;">
+                    </span>
+                    <h6 id="nav_besar_judul_UICCI">
+                        United Islamic Cultural Centre of Indonesia
+                    </h6>
+                </div>
+                <div id="nav_besar_menu">
+                    <ul id="nav_besar_list_induk_menu">
+                        <li id="nav_besar_list_beranda" class="nav_besar_list_menu link_hover">
+                            <a href="#nav_besar_list_beranda">Beranda</a>
+                        </li>
+                        <li id="nav_besar_list_UICCI" class="nav_besar_list_menu link_hover">
+                            <div id="nav_besar_wrapper_UICCI_dan_expand" class="dropdown-item">
+                                <a id="nav_besar_UICCI_dan_logo_expand" href="#nav_besar_list_UICCI">
+                                    UICCI
+                                    <svg id="nav_besar_logo_expand" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"></path>
+                                    </svg>
+                                </a>
+                                <ul id="induk_list_expand_uicci">
+                                    <li id="nav_besar_list_expand_uicci_profil_uicci" class="nav_besar_list_expand_uicci hover_kuning">
+                                        <a id="nav_besar_link_profil_uicci" href="#nav_besar_link_profil_uicci">
+                                            <p id="nav_besar_link_profil_uicci_tulisan_profil_uicci">Profil UICCI</p>
+                                        </a>
+                                    </li>
+                                    <li id="nav_besar_list_expand_uicci_Daftar_asrama" class="dropdown-item">
+                                        <a id="nav_besar_list_expand_uicci_tulisan_daftar_asrama" class="nav_besar_list_expand_uicci hover_kuning">
+                                            <p id="nav_besar_tulisan_daftar_asrama">
+                                                Daftar Asrama Mahasiswa Sulaimaniyah
+                                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="ml-1 min-w-fit" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M184 112l144 144-144 144"></path>
+                                                </svg>
+                                            </p>
+                                        </a>
+                                        <ul id="nav_besar_induk_list_daftar_asrama">
+                                            <li class="nav_besar_list_daftar_asrama hover_kuning"><p class="nav_besar_list_daftar_asrama_teks">UICCI Sulaimaniyah Yogyakarta</p></li>                                            
+                                            <li class="nav_besar_list_daftar_asrama hover_kuning"><p class="nav_besar_list_daftar_asrama_teks">UICCI Sulaimaniyah Ciputat</p></li>                                            
+                                            <li class="nav_besar_list_daftar_asrama hover_kuning"><p class="nav_besar_list_daftar_asrama_teks">UICCI Sulaimaniyah Bandung</p></li>
+                                            <li class="nav_besar_list_daftar_asrama hover_kuning"><p class="nav_besar_list_daftar_asrama_teks">UICCI Waru Slamet Surabaya</p></li>
+                                            <li class="nav_besar_list_daftar_asrama hover_kuning"><p class="nav_besar_list_daftar_asrama_teks">UICCI Ali Dayı Jakarta</p></li>
+                                            <li class="nav_besar_list_daftar_asrama hover_kuning"><p class="nav_besar_list_daftar_asrama_teks">UICCI Sultan Selahuddin Aceh</p></li>                                            
+                                        </ul>
+                                    </li>
+                                    <li id="nav_besar_list_expand_uicci_Program_dan_kegiatan" class="nav_besar_list_expand_uicci hover_kuning">
+                                        <a id="nav_besar_link_program_dan_kegiatan" href="#nav_besar_link_program_dan_kegiatan">
+                                            <p id="nav_besar_link_profil_uicci_tulisan_program_dan_kegiatan">
+                                                Program dan Kegiatan
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li id="nav_besar_list_status_hotspot" class="nav_besar_list_menu bg-c-yellow-300">
+                            <a href="#">Status Hotspot</a>
+                        </li>
+                        <li id="nav_besar_list_berita" class="nav_besar_list_menu link_hover">
+                            <a href="#nav_besar_list_berita">Berita</a>
+                        </li>
+                        <li id="nav_besar_list_faq" class="nav_besar_list_menu link_hover">
+                            <a href="#nav_besar_list_faq">FAQ</a>
+                        </li>
+                        <li id="nav_besar_list_notifikasi" class="nav_besar_list_menu link_hover">
+                            <div id="nav_besar_list_notifikasi_wrapper">
+                                <a id="nav_besar_notifikasi_container">
+                                    <span id="nav_besar_angka_notifikasi">6</span>
+                                    <svg id="nav_besar_animasi_notifikasi" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z">
+                                        </path>
+                                    </svg>
+                                    <svg id="nav_besar_logo_notifikasi" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sulaimaniyah">
+        <div class="main">
+            <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                <input type="hidden" name="erase-cookie" value="on">
+                $(if login-by == 'trial')
+                <div style="margin-top:20px; text-align: center;">
+                    <h3>Selamat Datang</h3><i style="font-size:50px;" class="icon icon-user-circle-o">&#xf2be;</i>
+                    <h3>Pengguna Tamu</h3>
+                </div>
+                $(elif login-by != 'mac')
+                <div style="margin-top:20px; text-align: center;">
+                    <h3>Selamat Datang</h3><i style="font-size:50px;" class="icon icon-user-circle-o">&#xf2be;</i>
+                    <h3 id="user">$(username)</h3>
+                </div>
+                $(endif)
+                <div class="box">
+                    <span style="background:rgba(255,255,255,0.8);border-radius:3px;padding:10px;color:#333;">Terhubung
+                        <i class="icon icon-globe">&#xe812;</i> : $(uptime)</span>
+                </div>
+                <table class="table no-border">
+                    <tbody>
+                        <tr>
+                            <td style="padding-bottom: 0px;">
+                                <p style="font-size:12px;margin-bottom:0px;"><i class="icon icon-download">&#xe809;</i>
+                                    Download</p>
+                            </td>
+                            <td style="padding-bottom: 0px;">
+                                <p style="font-size:12px;margin-bottom:0px;"><i class="icon icon-upload">&#xe80a;</i>
+                                    Upload
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 0px;">
+                                <p style="font-size:18px;margin:0;">$(bytes-out-nice) </p>
+                            </td>
+                            <td style="padding-top: 0px;">
+                                <p style="font-size:18px;margin:0;">$(bytes-in-nice) </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td align="right" style="width: 40%;">IP <i class="icon icon-sitemap">&#xf0e8;</i> </td>
+                        <td>$(ip)</td>
+                    </tr>
+                    <tr>
+                        <td align="right">MAC <i class="icon icon-qrcode">&#xe814;</i> </td>
+                        <td>$(mac)</td>
+                    </tr>
+                    $(if remain-bytes-out)
+                    <tr>
+                        <td align="right">Sisa Kuota <i class="icon icon-battery-3">&#xf241;</i> </td>
+                        <td>
+                            <script language="JavaScript">document.write(readablizeBytes($(remain-bytes-out)));</script>
+                        </td>
+                    </tr>
+                    $(endif)
+                    $(if session-time-left)
+                    <tr>
+                        <td align="right">Sisa Waktu <i class="icon icon-clock">&#xe80f;</i> </td>
+                        <td>$(session-time-left)</td>
+                    </tr>
+                    $(endif)
+                    $(if blocked == 'yes')
+                    <tr>
+                        <td align="right">Status</td>
+                        <td>
+                            <div style="color: #FF8080">
+                                <a href="$(link-advert)" target="hotspot_advert">advertisement</a> required
+                            </div>
+                        </td>
+                    </tr>
+                    $(elif refresh-timeout)
+                    <tr>
+                        <td align="right">Refresh <i class="icon icon-arrows-cw">&#xe811;</i> </td>
+                        <td>$(refresh-timeout)</td>
+                    </tr>
+                    $(endif)
+                    <tr>
+                        <td align="right">Expired <i class="icon icon-hour-2">&#xf252;</i> </td>
+                        <td style="padding-top:0px; padding-left:2px;">
+                            <!--iframe id="exp" frameborder="0" scrolling="no" src="about:blank"></iframe-->
+                        </td>
+                    </tr>
+                </table>
+                $(if login-by-mac != 'yes')
+                <p style="font-size:10px; text-align:center;margin:5px auto;">Tombol <b>LOG OFF</b> dapat menghentikan
+                    akses
+                    internet</p>
+                <button class="button2 orange" type="submit"> <i class="icon icon-off">&#xe813;</i> LOG OFF</button>
+                $(endif)
+            </form>
+            <!-- <div class="box">
+                <i>&copy; 2022 Tim IT UICCI Yogyakarta</i><br />
+                <i>Powered by <a style="color:#000; text-decoration:underline;"
+                        href="https://uicci.wordpress.com/">Mikhmon</a></i>
+            </div> -->
+        </div>
+        <script type="text/javascript">
+            //get vaidity
+            var usr = document.getElementById('user').innerHTML
+            var url = "https://example.com/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
+            var SessionName = "wifijoss"
+            var getvalid = url + usr + "&session=" + SessionName
+            document.getElementById('exp').src = getvalid;
+        </script>
+    </div>
+    
+    <footer class="footer">
+        <div id="footer">
+            <div id="footer_kontak">
+                <h5 id="footer_kontak_company">UICCI Yogyakarta <script>document.write(new Date().getFullYear())</script></h5>
+                <a href="https://uicci.wordpress.com/" target="_blank" rel="noopener noreferrer">
+                    <p id="footer_kontak_maker" class="hover:text-c-yellow-100">Tim IT Yayasan Tahfidz Sulaimaniyah
+                        Yogyakarta</p>
+                </a>
+                <div id="footer_kontak_cp">
+                    <a href="https://goo.gl/maps/DuSxbzu8StJ67CgL8">
+                        <div style="display: flex;">
+                            <div style="width: 0.625rem; height: 0.875rem;">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-c-yellow-500 mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="256" cy="192" r="32"></circle>
+                                    <path d="M256 32c-88.22 0-160 68.65-160 153 0 40.17 18.31 93.59 54.42 158.78 29 52.34 62.55 99.67 80 123.22a31.75 31.75 0 0051.22 0c17.42-23.55 51-70.88 80-123.22C397.69 278.61 416 225.19 416 185c0-84.35-71.78-153-160-153zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="ml-1.5 hover:text-c-yellow-100">Jl. Gambir, Gg. Seruni, No. 8, Deresan,
+                                Caturtunggal, Depok, Sleman,
+                                Yogyakarta 55281 </p>
+                        </div>
+                    </a>
+                    <div style="display: flex;">
+                        <div class="w-2.5 h-3.5"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-c-yellow-500 mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.71L11 12.41V7h2v4.59l3.71 3.71-1.42 1.41z">
+                                </path>
+                            </svg></div>
+                        <p class="ml-1.5">06:00 - 21:00 WIB</p>
+                    </div>
+                    <a href="https://wa.me/62895395182462" target="_blank" rel="noopener noreferrer">
+                        <div style="display: flex;">
+                            <div class="w-2.5 h-3.5"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" class="text-c-yellow-500 mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384z">
+                                    </path>
+                                </svg></div>
+                            <p class="ml-1.5 hover:text-c-yellow-100">Contact Person UICCI Yogyakarta :
+                                +62-895-3951-82462</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="footer_kontak_logoSosmed">
+                    <a class="footer_kontak_logoSosmed_wrapper" href="#" target="_blank" rel="noreferrer">
+                        <div class="footer_kontak_logoSosmed_wrapper_logo line"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 24 24" class="w-full" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path fill-rule="nonzero"
+                                        d="M18.663 10.84a.526.526 0 0 1-.526.525h-1.462v.938h1.462a.525.525 0 1 1 0 1.049H16.15a.526.526 0 0 1-.522-.524V8.852c0-.287.235-.525.525-.525h1.988a.525.525 0 0 1-.003 1.05h-1.462v.938h1.462c.291 0 .526.237.526.525zm-4.098 2.485a.538.538 0 0 1-.166.025.515.515 0 0 1-.425-.208l-2.036-2.764v2.45a.525.525 0 0 1-1.047 0V8.852a.522.522 0 0 1 .52-.523c.162 0 .312.086.412.211l2.052 2.775V8.852c0-.287.235-.525.525-.525.287 0 .525.238.525.525v3.976a.524.524 0 0 1-.36.497zm-4.95.027a.526.526 0 0 1-.523-.524V8.852c0-.287.236-.525.525-.525.289 0 .524.238.524.525v3.976a.527.527 0 0 1-.526.524zm-1.53 0H6.098a.528.528 0 0 1-.525-.524V8.852a.527.527 0 0 1 1.05 0v3.45h1.464a.525.525 0 0 1 0 1.05zM12 2.572c-5.513 0-10 3.643-10 8.118 0 4.01 3.558 7.369 8.363 8.007.325.068.769.215.881.492.1.25.066.638.032.9l-.137.85c-.037.25-.2.988.874.537 1.076-.449 5.764-3.398 7.864-5.812C21.313 14.089 22 12.477 22 10.69c0-4.475-4.488-8.118-10-8.118z">
+                                    </path>
+                                </g>
+                            </svg></div>
+                    </a><a class="footer_kontak_logoSosmed_wrapper" href="# target=" _blank"="" rel="noreferrer">
+                        <div class="footer_kontak_logoSosmed_wrapper_logo instagram"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 448 512" class="w-full" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                                </path>
+                            </svg></div><span class="undefined"></span>
+                    </a><a class="footer_kontak_logoSosmed_wrapper" href="#" target="_blank" rel="noreferrer">
+                        <div class="footer_kontak_logoSosmed_wrapper_logo twitter"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 512 512" class="w-full" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                                </path>
+                            </svg></div><span class="undefined"></span>
+                    </a><a class="footer_kontak_logoSosmed_wrapper" href="#" target="_blank" rel="noreferrer">
+                        <div class="footer_kontak_logoSosmed_wrapper_logo tiktok"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 448 512" class="w-full" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z">
+                                </path>
+                            </svg></div><span class="undefined"></span>
+                    </a><a class="footer_kontak_logoSosmed_wrapper" href="#" target="_blank" rel="noreferrer">
+                        <div class="footer_kontak_logoSosmed_wrapper_logo youtube"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 576 512" class="w-full" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+                                </path>
+                            </svg></div><span class="undefined"></span>
+                    </a><a class="footer_kontak_logoSosmed_wrapper" href="#" target="_blank" rel="noreferrer">
+                        <div class="footer_kontak_logoSosmed_wrapper_logo facebook"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 320 512" class="w-full" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                                </path>
+                            </svg></div><span class="undefined"></span>
+                    </a>
+                </div>
+            </div>
+            <div id="footer_menu">
+                <div id="footer_menu_explorasi">
+                    <p class="footer_menu_judul">Eksplorasi</p>
+                    <p class="footer_menu_poin hover:text-c-yellow-100" href="https://uicci.wordpress.org">Tentang
+                        UICCI Yogyakarta</p>
+                    <p class="footer_menu_poin hover:text-c-yellow-100" href="#">Program Pesantren</p>
+                    <p class=" footer_menu_poin hover:text-c-yellow-100" data-tip="Coming Soon!" data-class="font-bold bg-neutral-50 text-h6" data-effect="solid" data-type="light">Galeri
+                        Kegiatan</p>
+                    <p class="footer_menu_poin hover:text-c-yellow-100" href="#">Informasi Pendaftaran</p>
+                </div>
+                <div class="footer_menu_partner">
+                    <p class="footer_menu_judul">Partner</p>
+                    <p class="footer_menu_poin hover:text-c-yellow-100" href="#">Zakat,
+                        Infaq, dan Shadaqah</p>
+                    <p class=" footer_menu_poin hover:text-c-yellow-100" href="#"><a href="https://www.berangkat-umroh.com/">Hisar Global Indonesia
+                        </a></p>
+                    <p class="footer_menu_poin hover:text-c-yellow-100" href="#"><a href="https://www.studiesinturkey.com/">Studies In
+                            Turkey</a></p>
+                    <p class="footer_menu_poin hover:text-c-yellow-100">
+                        <a href="https://www.tahfidzsulaimaniyah.org/"> Yayasan Tahfidz Sulaimaniyah</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            <p id="copyright_teks">
+                Tim IT UICCI Yogyakarta <script>document.write(new Date().getFullYear())</script> . All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>

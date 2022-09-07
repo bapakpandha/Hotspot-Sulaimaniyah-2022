@@ -137,7 +137,7 @@
         </div>
         <script>
             $("#welcome-screen").addClass("welcome-screen-state-loop");
-            $(document).ready(function () {              
+            $(document).ready(function () {
                 $(window).on('load', function () {
                     setTimeout(function () {
                         $("#welcome-screen").removeClass("welcome-screen-state-loop");
@@ -162,8 +162,7 @@
         <div id="topNav"
             class="flex items-center w-full h-50 lg:px-10 xl:px-28 bg-gray-200 font-semibold text-inherit transition-all ease-in-out">
             <div class="w-full w-full min-h-[77px] !p-0 !text-[20px] font-semibold text-c-blue-900 block lg:hidden">
-                <div
-                    class="flex px-4 py-4 justify-between items-center w-full text-[16px] font-semibold hover:bg-c-gray-100 hover:cursor-pointer w-full h-full bg-shades-0 !px-6 w-full min-h-[77px] !p-0 !text-[20px] font-semibold text-c-blue-900 block lg:hidden">
+                <div class="flex px-4 py-4 justify-between items-center w-full text-[16px] font-semibold hover:bg-c-gray-100 hover:cursor-pointer w-full h-full bg-shades-0 !px-6 w-full min-h-[77px] !p-0 !text-[20px] font-semibold text-c-blue-900 block lg:hidden">
                     <div class="w-full flex items-center justify-between py-4">
                         <div class="flex items-center gap-2"><span
                                 style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span
@@ -203,7 +202,8 @@
                             class="w-5 min-w-auto" data-icon="true" height="1em" width="1em"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
-                        </svg></div>
+                        </svg>
+                    </div>
                 </div>
                 <div id="klik_nav" class="overflow-hidden transition-all max-h-0 duration-100">
                     <div
@@ -272,8 +272,8 @@
                                                 class="flex px-4 py-4 justify-between items-center w-full text-[16px] font-semibold hover:bg-c-gray-100 hover:cursor-pointer !text-[20px] !justify-center font-semibold text-inherit">
                                                 Info UICCI<div
                                                     class="min-h-[inherit] flex items-center justify-center px-2"
-                                                    data-icon="true"><svg id="svg_ikon" stroke="currentColor" fill="currentColor"
-                                                        stroke-width="0" viewBox="0 0 512 512"
+                                                    data-icon="true"><svg id="svg_ikon" stroke="currentColor"
+                                                        fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
                                                         class="w-4 min-w-auto transition-all ease-in-out"
                                                         data-icon="true" height="1em" width="1em"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -281,7 +281,8 @@
                                                             stroke-width="48" d="M112 184l144 144 144-144"></path>
                                                     </svg></div>
                                             </div>
-                                            <div id="mobile_info_uicci" class="overflow-hidden transition-all max-h-0 duration-100">
+                                            <div id="mobile_info_uicci"
+                                                class="overflow-hidden transition-all max-h-0 duration-100">
                                                 <div
                                                     class="pl-4 w-full bg-c-base-background !text-[16px] !p-0 mt-2 pt-2 font-medium text-inherit text-center bg-neutral-50">
                                                     <ul>
@@ -553,7 +554,7 @@
                     <tr>
                         <td align="right">Sisa Kuota <i class="icon icon-battery-3">&#xf241;</i> </td>
                         <td>
-                            <script language="JavaScript">document.write(readablizeBytes($(remain-bytes-out)));</script>
+                            <script language="JavaScript">document.write(readablizeBytes($(remain - bytes - out)));</script>
                         </td>
                     </tr>
                     $(endif)
@@ -611,8 +612,9 @@
     <footer class="footer bg-c-blue-500 text-shades-0 relative z-[99]">
         <div class="flex lg:flex-row flex-col justify-evenly items-center lg:py-16 p-8">
             <div class="max-w-sm">
-                <h5 class="font-bold leading-7 text-h5">UICCI Yogyakarta <script>document.write(new Date().getFullYear())</script></h5><a href="https://uicci.wordpress.com/"
-                    target="_blank" rel="noopener noreferrer">
+                <h5 class="font-bold leading-7 text-h5">UICCI Yogyakarta
+                    <script>document.write(new Date().getFullYear())</script>
+                </h5><a href="https://uicci.wordpress.com/" target="_blank" rel="noopener noreferrer">
                     <p class="font-bold leading-6 mt-6 hover:text-c-yellow-100">Tim IT Yayasan Tahfidz Sulaimaniyah
                         Yogyakarta</p>
                 </a>
@@ -744,7 +746,9 @@
             </div>
         </div>
         <div class="bg-c-blue-300 flex justify-center items-center py-1.5">
-            <p class="text-[10.24px] text-shades-0 font-medium">Tim IT UICCI Yogyakarta <script>document.write(new Date().getFullYear())</script>. All rights reserved.</p>
+            <p class="text-[10.24px] text-shades-0 font-medium">Tim IT UICCI Yogyakarta
+                <script>document.write(new Date().getFullYear())</script>. All rights reserved.
+            </p>
         </div>
     </footer>
 </body>
