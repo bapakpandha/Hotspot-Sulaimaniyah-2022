@@ -16,7 +16,7 @@
   outline: none;
   border: none;
   text-transform: capitalize;
-  transition: all .2s linear;
+  transition: all .5s linear;
 }
 
 html {
@@ -151,16 +151,29 @@ header .navbar ul li a:hover {
     display: block;
   }
 
-  header .navbar {
+  /* header .navbar {
     position: fixed;
-    top: 6.5rem;
+    top: 7.5rem;
     right: -120%;
     width: 75%;
     height: 100%;
     text-align: left;
     align-items: flex-start;
     background-color: #0e0f31;
-  }
+  } */
+
+  header .navbar {
+    position: fixed;
+    top: 7.5rem;
+    right: -120%;
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    align-items: flex-start;
+    background-color: #45bd9d;
+    border-radius: 25px 0 0 25px;
+    transition: all .8s linear;
+}
 
   header .navbar ul {
     flex-flow: column;
@@ -179,17 +192,24 @@ header .navbar ul li a:hover {
     display: block;
     padding: 1rem;
     text-align: left;
-    color: #fff;
+    color: #f7f7f7;
     font-size: 2rem;
   }
 
-  header .navbar ul li a.active,
+  /* header .navbar ul li a.active,
   header .navbar ul li a:hover {
     padding: 1rem;
     color: #fff;
     border-radius: .5rem;
     border-bottom: .5rem solid #011aff;
-  }
+  } */
+
+  header .navbar ul li a.active, header .navbar ul li a:hover {
+    padding: 1rem;
+    color: #445f74;
+    border-radius: .5rem;
+    border-bottom: .5rem solid #466175;
+}
 
   .fa-times {
     transform: rotate(180deg);
