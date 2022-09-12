@@ -399,8 +399,9 @@ header .navbar ul li a:hover {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15rem;
-  margin-left: -7rem;
+  margin-right: 0;
+  margin-left: 0;
+  width: 125%;
 }
 
 @media (min-width: 992px) {
@@ -416,8 +417,8 @@ header .navbar ul li a:hover {
   .col-md-6 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 75%;
+    max-width: 75%;
   }
 
   .text-md-right {
@@ -756,4 +757,25 @@ button:not(:disabled),
   margin-bottom: 1.5rem !important;
 }
 
+@media (max-width: 1024px) {
+  .row {
+    margin:0;
+    width: 100%;
+  }  
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .home{
+    flex-direction: column;
+  }
+}
+@media (min-width: 1366px) {
+  .col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+}
 /* Login form finished */
