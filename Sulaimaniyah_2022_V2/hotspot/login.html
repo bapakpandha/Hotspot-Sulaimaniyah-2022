@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Hotspot</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
+    <meta content='RingRoad' name='Author' />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
     <link rel="stylesheet" href="css/login_style.css">
-
+    <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+    <script src="js/particles/particles.min.js"></script>
+    <script src="js/login_script.js"></script>
 </head>
 
 <body>
@@ -16,7 +19,7 @@
         <a href="javascript:location.reload()" class="logo">
             <div class="cv"><img src="./img/logo.png" alt="cv"></div>
         </a>
-        <div id="menu" class="fas fa-bars"></div>
+        <div id="menu" class="icon-menu"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z" clip-rule="evenodd"/></svg></svg></div>
         <nav class="navbar">
             <ul>
                 <li><a class="active" href="https://tahfidzsulaimaniyah.org/index.html">Beranda</a></li>
@@ -45,31 +48,22 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-lg-4">
                         <div class="login-wrap py-5">
-                            <div class="img d-flex align-items-center justify-content-center"
-                                style="background-image:url(./img/logodky.png)"></div>
+                            <div class="img d-flex align-items-center justify-content-center" style="background-image:url(./img/logodky.png)"></div>
                             <h3 class="text-center mb-0">Hoş Geldiniz!</h3>
                             <p class="text-center">Login untuk menikmati layanan internet Sulaimaniyah Yogyakarta</p>
-                            <form class="login-form" name="login" action="$(link-login-only)" method="post" $(if
-                                chap-id) onSubmit="return doLogin()" $(endif)>
+                            <form class="login-form" name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
                                 <input type="hidden" name="dst" value="$(link-orig)" />
                                 <input type="hidden" name="popup" value="true" />
                                 <div class="form-group">
-                                    <div class="icon d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-user"></span></div>
-                                    <input class="username form-control" name="username" type="text"
-                                        placeholder="Username" value="$(username)" autocomplete="off" required />
-                                    <!-- <input type="text" class="form-control" placeholder="Username" required=""> -->
+                                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa"><svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"/></svg></span></div>
+                                    <input class="username form-control" name="username" type="text" placeholder="Username" value="$(username)" autocomplete="off" required />
                                 </div>
                                 <div class="form-group">
-                                    <div class="icon d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-lock"></span></div>
-                                    <input class="password form-control" name="password" placeholder="Password" value=""
-                                        autocomplete="off" type="password"/>
-                                    <!-- <input type="password" class="form-control" placeholder="Password" required=""> -->
+                                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa"><svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="currentColor" d="M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176C160 78.798 238.797.001 335.999 0C433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48s-21.49-48-48-48s-48 21.49-48 48z"/></svg></span></div>
+                                    <input class="password form-control" name="password" placeholder="Password" value="" autocomplete="off" type="password"/>
                                 </div>
                                 <div class="form-group d-md-flex">
-                                    <div class="w-100 text-md-right">
-                                        <a class="lupa_password" href="https://wa.me/62895395182462?text=Assalamu%27alaikum%2C+Abi.+Mohon+maaf+mengganggu+waktu+Abi%2C+saya+mohon+izin+untuk+meminta+akun+wifi+sulaimaniyah+yang+baru%2C+karena+saya+lupa+password+akun+wifi+saya.+Mohon+abi+berkenan+untuk+memberikannya.+Terimakasih+Abi.">Lupa Password</a>
+                                    <div class="w-100 text-md-right"><a class="lupa_password" href="https://wa.me/62895395182462?text=Assalamu%27alaikum%2C+Abi.+Mohon+maaf+mengganggu+waktu+Abi%2C+saya+mohon+izin+untuk+meminta+akun+wifi+sulaimaniyah+yang+baru%2C+karena+saya+lupa+password+akun+wifi+saya.+Mohon+abi+berkenan+untuk+memberikannya.+Terimakasih+Abi.">Lupa Password</a>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -81,13 +75,7 @@
                             <div class="w-100 text-center mt-4 text">
                                 <p class="dont">Tidak punya akun?</p>
                                 <div class="form-group">
-                                    <button class="gunakan_trial btn form-control rounded submit px-3"
-                                        onclick="location.href = '$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)';">Login
-                                        Menggunakan
-                                        akun trial</button>
-                                    <!-- <button type="submit"
-                                        class="gunakan_trial btn form-control rounded submit px-3">Login Menggunakan
-                                        akun trial</button> -->
+                                    <button class="gunakan_trial btn form-control rounded submit px-3" onclick="location.href = '$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)';">Login Menggunakan akun trial</button>
                                 </div>
                             </div>
                             $(else)
@@ -147,14 +135,8 @@
             </div>
         </div>
     </section>
-    <!-- hero section ends -->
-    <!-- jquery.js -->
-    <script src="./js/jquery/jquery.min.js"></script>
-    <!-- particle.js -->
-    <script src="./js/particles/particles.min.js"></script>
-    <script src="./js/particles/app.js"></script>
-    <!-- main -->
-    <script src="js/login_script.js"></script>
+    <script src="js/particles/app.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
     <script type="text/javascript">
         document.login.username.focus();
         var username = document.login.username;

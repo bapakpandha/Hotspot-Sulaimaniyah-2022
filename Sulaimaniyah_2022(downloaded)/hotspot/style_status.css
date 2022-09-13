@@ -8,7 +8,7 @@ html {
 }
 
 .bg-home {
-  background: url(../img/bg-home.gif) no-repeat center center fixed;
+  background: url(img/bg-home.gif) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -718,12 +718,11 @@ a {
 
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?12105868');
-  src: url('../font/fontello.eot?12105868#iefix') format('embedded-opentype'),
-    url('../font/fontello.woff?12105868') format('woff'),
-    url('../font/fontello.ttf?12105868') format('truetype'),
-    url('../font/fontello.svg?12105868#fontello') format('svg');
-    
+  src: url('./font/fontello.eot?12105868');
+  src: url('./font/fontello.eot?12105868#iefix') format('embedded-opentype'),
+    url('./font/fontello.woff?12105868') format('woff'),
+    url('./font/fontello.ttf?12105868') format('truetype'),
+    url('./font/fontello.svg?12105868#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1068,7 +1067,7 @@ iframe {
   -o-animation: fadein 1s;
   border: 2px solid rgba(181, 210, 255, 0.6);
   background-repeat: repeat;
-  background-image: url('../img/bg-inner.png')
+  background-image: url('img/bg-inner.png')
 }
 
 .box {
@@ -1473,132 +1472,132 @@ footer p {
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-Thin.8503aff4.ttf) format("truetype");
+  src: url(font/Metropolis-Thin.8503aff4.ttf) format("truetype");
   font-weight: 100;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-ThinItalic.e93971bf.ttf) format("truetype");
+  src: url(font/Metropolis-ThinItalic.e93971bf.ttf) format("truetype");
   font-weight: 100;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-ExtraLight.79be1aa5.ttf) format("truetype");
+  src: url(font/Metropolis-ExtraLight.79be1aa5.ttf) format("truetype");
   font-weight: 200;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-ExtraLightItalic.9713a98d.ttf) format("truetype");
+  src: url(font/Metropolis-ExtraLightItalic.9713a98d.ttf) format("truetype");
   font-weight: 200;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-Light.4e605673.ttf) format("truetype");
+  src: url(font/Metropolis-Light.4e605673.ttf) format("truetype");
   font-weight: 300;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-LightItalic.d4ca2d6e.ttf) format("truetype");
+  src: url(font/Metropolis-LightItalic.d4ca2d6e.ttf) format("truetype");
   font-weight: 300;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-Regular.1ad48b75.ttf) format("truetype");
+  src: url(font/Metropolis-Regular.1ad48b75.ttf) format("truetype");
   font-weight: 400;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-RegularItalic.56b8ba57.ttf) format("truetype");
+  src: url(font/Metropolis-RegularItalic.56b8ba57.ttf) format("truetype");
   font-weight: 400;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-Medium.1d9e6430.ttf) format("truetype");
+  src: url(font/Metropolis-Medium.1d9e6430.ttf) format("truetype");
   font-weight: 500;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-MediumItalic.bd20900d.ttf) format("truetype");
+  src: url(font/Metropolis-MediumItalic.bd20900d.ttf) format("truetype");
   font-weight: 500;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-SemiBold.74834d23.ttf) format("truetype");
+  src: url(font/Metropolis-SemiBold.74834d23.ttf) format("truetype");
   font-weight: 600;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-SemiBoldItalic.16e42cc6.ttf) format("truetype");
+  src: url(font/Metropolis-SemiBoldItalic.16e42cc6.ttf) format("truetype");
   font-weight: 600;
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-Bold.6afb7f47.ttf) format("truetype");
+  src: url(font/Metropolis-Bold.6afb7f47.ttf) format("truetype");
   font-weight: 700;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-BoldItalic.fa8aceb8.ttf) format("truetype");
+  src: url(font/Metropolis-BoldItalic.fa8aceb8.ttf) format("truetype");
   font-weight: 700;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-ExtraBold.6c219516.ttf) format("truetype");
+  src: url(font/Metropolis-ExtraBold.6c219516.ttf) format("truetype");
   font-weight: 800;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-ExtraBoldItalic.7d31904d.ttf) format("truetype");
+  src: url(font/Metropolis-ExtraBoldItalic.7d31904d.ttf) format("truetype");
   font-weight: 800;
   font-style: italic
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-Black.8a5bc9e0.ttf) format("truetype");
+  src: url(font/Metropolis-Black.8a5bc9e0.ttf) format("truetype");
   font-weight: 900;
   font-style: normal
 }
 
 @font-face {
   font-family: Metropolis;
-  src: url(../font/Metropolis-BlackItalic.24781e39.ttf) format("truetype");
+  src: url(font/Metropolis-BlackItalic.24781e39.ttf) format("truetype");
   font-weight: 900;
   font-style: italic
 }
 
 @font-face {
   font-family: Gilligan Shutter;
-  src: url(../font/GilliganShutter.c468c61f.ttf)
+  src: url(font/GilliganShutter.c468c61f.ttf)
 }
 
 /* Scrollbar */

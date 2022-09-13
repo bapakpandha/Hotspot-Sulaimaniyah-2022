@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Logout Hotspot</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="height=device-height, initial-scale=1.0">
+<meta content='RingRoad' name='Author' />
+<link rel="shortcut icon" type="image/png" href="https://www.tahfidzsulaimaniyah.org/favicon.ico"/>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+<body class="bg-home">
+<script language="JavaScript">
+    function openLogin() {
+	if (window.name != 'hotspot_logout') return true;
+	open('$(link-login)', '_blank', '');
+	window.close();
+	return false;
+    }
+</script>
+<div class="main">
+<div class="box">
+$(if login-by == 'trial')
+<div style="margin-top:20px; text-align: center;"><h3>Terima Kasih telah menggunakan layanan Internet Yayasan Tahfidz Sulaimaniyah</h3><i style="font-size:50px;border-radius:50%;" class="icon icon-user-circle orange">&#xf2bd;</i> <h3>Trial User</h3></div>
+$(elif login-by != 'mac')
+<div style="margin-top:20px; text-align: center;"><h3>Terima Kasih telah menggunakan layanan Internet Yayasan Tahfidz Sulaimaniyah</h3><i style="font-size:50px;border-radius:50%;" class="icon icon-user-circle orange">&#xf2bd;</i> <h3 id="user">$(username)</h3></div>
+$(endif)
+</div>
+<div class="box">
+$(if session-time-left)
+<span style="background:rgba(255,255,255,0.8);border-radius:3px;padding:10px;margin:0 auto 10px;color:#333;"> Sisa Waktu <i class="icon icon-clock">&#xe80f;</i> : $(session-time-left)</span>
+$(else)
+<span style="background:rgba(255,255,255,0.8);border-radius:3px;padding:10px;margin:0 auto 10px;color:#333;"> Sisa Waktu <i class="icon icon-clock">&#xe80f;</i> : No Limit</span>
+$(endif)
+</div>
+<br/>
+<table class="table2">
+    <tr><td align="right">MAC <i class="icon icon-qrcode">&#xe814;</i> </td><td>$(mac)</td></tr>
+    <tr><td align="right">Terhubung <i class="icon icon-globe">&#xe812;</i> </td><td>$(uptime)</td></tr>
+$(if remain-bytes-out)
+    <tr><td align="right">Sisa Kuota <i class="icon icon-battery-3">&#xf241;</i> </td><td><script language="JavaScript">document.write(readablizeBytes($(remain-bytes-out)));</script></td></tr>
+$(endif)
+	<tr>
+		<td colspan="2" style="margin-left: 5px;"><i>* Terima kasih telah menggunakan layanan internet kami.</i></td>
+	</tr>
+</table>
+<br>
+<form action="$(link-login)" name="login" onSubmit="return openLogin()">
+<button class="button2 orange" type="submit"> <i class="icon icon-reply-all">&#xf122;</i> Login Kembali</button>
+</form>
+        <div class="box">
+            <i>&copy; 2022 Yayasan Tahfidz Sulaimaniyah Yogyakarta</i><br />
+            <i>Powered by <a style="color:#000; text-decoration:underline;" href="https://www.tahfidzsulaimaniyah.org/">Mikhmon</a></i>
+            <!-- Tolong jangan dihilangkan bagian ini-->
+        </div>
+</div>
+</body>
+</html>
