@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/login_style.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="javascript:location.reload()" class="logo">
+            <div class="cv"><img src="./img/logo.png" alt="cv"></div>
+        </a>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a class="active" href="https://tahfidzsulaimaniyah.org/index.html">Beranda</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/berita.html">Berita</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/tentangKami.html">Tentang Kami</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/cabang.html">Cabang</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/gallery.html">Gallery</a></li>
+                <li><a href="https://pendaftaran.tahfidzsulaimaniyah.org/">Pendaftaran</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- hero section starts -->
+    <section class="home" id="home">
+        <div id="particles-js"></div>
+        <div class="content">
+            <!-- <h3 id="waktu_salam"></h3> -->
+            <h3 class="internet">internet</h3>
+            <h3 class="sulaimaniyahyogya">SULAIMANIYAH <span>Yogyakarta</span></h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, expedita. Aliquid nulla labore
+                libero. Doloribus eum architecto, reiciendis quis fugiat, voluptatum quibusdam libero, deleniti
+                asperiores iure sunt nulla voluptatibus similique.<br><span class="typing-text"></span></p>
+        </div>
+        <div class="image container">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap py-5">
+                            <div class="img d-flex align-items-center justify-content-center"
+                                style="background-image:url(./img/logodky.png)"></div>
+                            <h3 class="text-center mb-0">Hoş Geldiniz!</h3>
+                            <p class="text-center">Login untuk menikmati layanan internet Sulaimaniyah Yogyakarta</p>
+                            <form class="login-form" name="login" action="$(link-login-only)" method="post" $(if
+                                chap-id) onSubmit="return doLogin()" $(endif)>
+                                <input type="hidden" name="dst" value="$(link-orig)" />
+                                <input type="hidden" name="popup" value="true" />
+                                <div class="form-group">
+                                    <div class="icon d-flex align-items-center justify-content-center"><span
+                                            class="fa fa-user"></span></div>
+                                    <input class="username form-control" name="username" type="text"
+                                        placeholder="Username" value="$(username)" autocomplete="off" required />
+                                    <!-- <input type="text" class="form-control" placeholder="Username" required=""> -->
+                                </div>
+                                <div class="form-group">
+                                    <div class="icon d-flex align-items-center justify-content-center"><span
+                                            class="fa fa-lock"></span></div>
+                                    <input class="password form-control" name="password" placeholder="Password" value=""
+                                        autocomplete="off" type="password"/>
+                                    <!-- <input type="password" class="form-control" placeholder="Password" required=""> -->
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-100 text-md-right">
+                                        <a class="lupa_password" href="https://wa.me/62895395182462?text=Assalamu%27alaikum%2C+Abi.+Mohon+maaf+mengganggu+waktu+Abi%2C+saya+mohon+izin+untuk+meminta+akun+wifi+sulaimaniyah+yang+baru%2C+karena+saya+lupa+password+akun+wifi+saya.+Mohon+abi+berkenan+untuk+memberikannya.+Terimakasih+Abi.">Lupa Password</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit"
+                                        class="btn form-control btn-primary rounded submit px-3">Login</button>
+                                </div>
+                            </form>
+                            $(if trial == 'yes')
+                            <div class="w-100 text-center mt-4 text">
+                                <p class="dont">Tidak punya akun?</p>
+                                <div class="form-group">
+                                    <button class="gunakan_trial btn form-control rounded submit px-3"
+                                        onclick="location.href = '$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)';">Login
+                                        Menggunakan
+                                        akun trial</button>
+                                    <!-- <button type="submit"
+                                        class="gunakan_trial btn form-control rounded submit px-3">Login Menggunakan
+                                        akun trial</button> -->
+                                </div>
+                            </div>
+                            $(else)
+                            <div style="display: none;" class="w-100 text-center mt-4 text">
+                                <p class="dont">Tidak punya akun?</p>
+                                <div class="form-group">
+                                    <button type="submit"
+                                        class="gunakan_trial btn form-control rounded submit px-3">Login Menggunakan
+                                        akun trial</button>
+                                </div>
+                            </div>
+                            $(endif)
+                            $(if error)
+                            <div id="notice" class="notice"> Mohon Periksa Informasi Login Anda
+                                <script type="text/javascript">
+                                    var error = "$(error)";
+                                    var error1 = "user $(username) has reached uptime limit";
+                                    var error2 = "user $(username) has reached traffic limit";
+                                    var error3 = "no valid profile found";
+                                    var error4 = "invalid username or password";
+                                    var error5 = "user &lt;$(username)&gt; not found";
+                                    var error6 = "simultaneous session limit reached";
+                                    if (error == error1 || error == error2 || error == error3) {
+                                        window.location.href = "expired.html";
+                                    } else if (error == error4) {
+                                        document.getElementById("notice").innerHTML = "Mohon Periksa Informasi Login Anda";
+                                    } else if (error == error5) {
+                                        document.getElementById("notice").innerHTML = "Username Tidak Ditemukan";
+                                    } else if (error == error6) {
+                                        document.getElementById("notice").innerHTML = "Jumlah Session Login Telah Dibatasi";
+                                    } else {
+                                        document.getElementById("notice").innerHTML = "$(error)";
+                                    } 
+                                </script>
+                            </div>
+                            $(endif)
+                            $(if chap-id)
+                            <form name="sendin" action="$(link-login-only)" method="post">
+                                <input type="hidden" name="username" />
+                                <input type="hidden" name="password" />
+                                <input type="hidden" name="dst" value="$(link-orig)" />
+                                <input type="hidden" name="popup" value="true" />
+                            </form>
+                            <script type="text/javascript" src="md5.js"></script>
+                            <script type="text/javascript">
+                                function doLogin() {
+                                    document.sendin.username.value = document.login.username.value;
+                                    document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+                                    document.sendin.submit();
+                                    return false;
+                                }
+                            </script>
+                            $(endif)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- hero section ends -->
+    <!-- jquery.js -->
+    <script src="./js/jquery/jquery.min.js"></script>
+    <!-- particle.js -->
+    <script src="./js/particles/particles.min.js"></script>
+    <script src="./js/particles/app.js"></script>
+    <!-- main -->
+    <script src="js/login_script.js"></script>
+    <script type="text/javascript">
+        document.login.username.focus();
+        var username = document.login.username;
+        var password = document.login.password;
+        function setuser() {
+            var user = username.value;
+            user = user.toLowerCase(); // voucher huruf kecil
+            username.value = user;
+        }
+        function setpass() {
+            var password = password.value;
+            password = password.toLowerCase();
+            password.value = password;
+        }
+        username.onkeyup = setuser;
+        password.onkeyup = setpass;
+    </script>
+</body>
+
+</html>

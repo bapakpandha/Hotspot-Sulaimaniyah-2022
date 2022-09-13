@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="2; url=$(link-redirect)">
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="expires" content="-1" />
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Login Sukses</title>
+  <script src="js/jquery/jquery.min.js"></script>
+  Bootstrap
+  <script language="JavaScript">function startClock() {
+      $(if popup == 'true') open('$(link-status)'
+      , 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290');
+      $(endif)location.href = '$(link-status)';
+    }
+  </script>
+  <style>
+    .container {
+      padding: 15px;
+      margin: 15px auto;
+      width: 1170px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body onLoad="startClock()">
+<body>
+  <div class="container">
+  <div id="welcome-screen">
+    <style>
+        #welcome-screen {
+            position: fixed;
+            overflow: hidden;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: #fff;
+            display: none;
+        }
+
+        #welcome-screen-background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #4263C1;
+        }
+
+        #welcome-screen-foreground {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #welcome-screen-logo {
+            position: relative;
+            overflow: hidden;
+            width: 75%;
+            height: 100%x;
+            max-width: 500px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #welcome-screen-logo-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #welcome-screen-logo-cover {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #4263C1;
+            opacity: 0;
+        }
+
+        #info {
+            color: #fff;
+            display: none;
+
+        }
+
+        #welcome-screen.welcome-screen-state-bg-intro>#welcome-screen-foreground {
+            display: none;
+        }
+
+        .welcome-screen-state-logo-intro #welcome-screen-logo {
+            animation: welcome-screen-logo-intro-logo 700ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+
+        @keyframes welcome-screen-logo-intro-logo {
+            0% {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .welcome-screen-state-bg-intro #welcome-screen-background {
+            animation: welcome-screen-bg-intro-background 600ms both cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        @keyframes welcome-screen-bg-intro-background {
+            0% {
+                transform: translateX(-100vw);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .welcome-screen-state-loop #welcome-screen-logo-cover {
+            animation: welcome-screen-loop-logo-cover 1200ms infinite ease-in-out;
+            opacity: 0.85;
+        }
+
+        @keyframes welcome-screen-loop-logo-cover {
+            0% {
+                transform: translateX(-600px)
+            }
+
+            50% {
+                transform: translateX(600px)
+            }
+
+            100% {
+                transform: translateX(600px)
+            }
+        }
+    </style>
+    <div id="welcome-screen-background"></div>
+    <div id="welcome-screen-foreground">
+        <div id="welcome-screen-logo">
+            <img id="welcome-screen-logo-image" src="img/logo_putih.png" alt="">
+            <div id="welcome-screen-logo-cover"></div>
+        </div>
+        <div id="info">
+            <small>
+                <b>Jika halaman status tidak muncul klik
+                  <a href="status.html">disini
+                  </a>
+                </b>
+            </small>
+        </div>
+    </div>
+  </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#welcome-screen").addClass("welcome-screen-state-bg-intro");
+            $("#welcome-screen").css("display", "block");
+
+            setTimeout(function () {
+                $("#welcome-screen").removeClass("welcome-screen-state-bg-intro");
+                $("#welcome-screen").addClass("welcome-screen-state-intro");
+            }, 1000);
+
+            setTimeout(function () {
+                $("#welcome-screen").removeClass("welcome-screen-state-intro");
+                $("#welcome-screen").addClass("welcome-screen-state-loop");
+            }, 2000);
+
+            $(window).on('load', function () {
+                setTimeout(function () {
+                    $("#info").css("display", "block");
+                }, 6000);
+                console.log('All assets are loaded')
+            })
+        });
+    </script>
+</body>
+
+</html>

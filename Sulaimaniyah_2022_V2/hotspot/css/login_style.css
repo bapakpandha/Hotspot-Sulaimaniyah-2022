@@ -1,11 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); */
 
 @font-face {
-  font-family: Londrina;
-  src: url(./font/LondrinaOutline-Regular.ttf);
+  font-family: 'Londrina';
+  src: url(../font/LondrinaOutline-Regular.ttf);
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url(../font/Quicksand-Bold.ttf);
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(../font/Poppins-Medium.ttf);
 }
 
 * {
@@ -679,6 +687,7 @@ p {
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   text-align: center;
+  text-transform: none;
 }
 
 input,
