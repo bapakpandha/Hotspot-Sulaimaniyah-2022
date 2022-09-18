@@ -802,6 +802,23 @@ button:not(:disabled),
     flex-direction: column;
   }
 }
+@media (max-width:500px) {
+  section {
+    padding-top: 10rem !important;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 2rem;
+  }
+  .content {
+    display: none !important;
+  }
+  header .navbar ul li a {
+    font-size: 1.4rem !important;
+}
+header .navbar ul li {
+  width: 15rem;
+}
+}
 @media (min-width:768px) and (max-width:1365px) {
   .col-md-6 {
     -webkit-box-flex: 0;
