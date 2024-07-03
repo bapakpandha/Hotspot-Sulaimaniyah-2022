@@ -249,7 +249,7 @@ header .navbar ul li a:hover {
   gap: 1.5rem;
   min-height: 100vh;
   align-items: center;
-  padding-top: 7rem;
+  padding-top: 9.2rem;
 }
 
 .home #particles-js {
@@ -303,6 +303,9 @@ header .navbar ul li a:hover {
   font-size: 5rem;
   font-weight: 800;
   color: #002057;
+    border-bottom-style: double;
+    border-bottom-width: 10px;
+    padding-bottom: 2rem;
 }
 
 .home .content h3 span {
@@ -318,12 +321,53 @@ header .navbar ul li a:hover {
   padding: 1rem 0;
 }
 
-.home .content p span {
-  font-size: 2.5rem;
-  color: rgb(148, 8, 8);
-  font-weight: 600;
-  padding: 1rem 0;
+/* Home Border */
+*, *::before, *::after {
+	box-sizing: border-box;
 }
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.pelangi {
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 3rem;
+}
+
+.pelangi::before {
+		content: '';
+		position: absolute;
+		z-index: -2;
+		left: -50%;
+		top: -50%;
+		width: 200%;
+		height: 200%;
+		background-color: #399953;
+		background-repeat: no-repeat;
+		background-size: 50% 50%, 50% 50%;
+		background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+		background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+    /* background-image: linear-gradient(#399953, #399953), linear-gradient(var(--hijau_muda), var(--hijau_muda)), linear-gradient(var(--hijau_tua, var(--hijau_tua))), linear-gradient(#377af5, #377af5); */
+		animation: rotate 4s linear infinite;
+	}
+	
+.pelangi::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+    background-color: #f7f7f7;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+		border-radius: 5px;
+	}
 
 /* social icons start */
 .socials {
@@ -843,5 +887,22 @@ header .navbar ul li {
     flex: 0 0 50%;
     max-width: 50%;
 }
+}
+
+/* ERROR STYLE */
+.notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100%;
+  background-color: #ffd5d5;
+  margin-bottom: 1rem !important;
+  border: solid 2px #ea0d0d;
+  color: #ff0000;
+  font-size: 1.4rem;
+  border-radius: 11px;
+  text-align: center;
 }
 /* Login form finished */

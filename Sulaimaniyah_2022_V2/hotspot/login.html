@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="css/login_style.css">
     <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
     <script src="js/particles/particles.min.js"></script>
-    <script src="js/login_script.js"></script>
+    <script src="./js/typed/typewriterjs-master/typewriterjs-master/dist/core.js"></script>
+    <!-- <script type="module" src="./js/typed/dist/core.js"></script>  -->
+    <!-- <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js"></script> -->
+    <script type="module" src="js/login_script.js"></script>
 </head>
 
 <body>
@@ -22,12 +26,12 @@
         <div id="menu" class="icon-menu"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z" clip-rule="evenodd"/></svg></svg></div>
         <nav class="navbar">
             <ul>
-                <li><a class="active" href="https://tahfidzsulaimaniyah.org/index.html">Beranda</a></li>
-                <li><a href="https://tahfidzsulaimaniyah.org/berita.html">Berita</a></li>
-                <li><a href="https://tahfidzsulaimaniyah.org/tentangKami.html">Tentang Kami</a></li>
+                <li><a class="active" href="https://tahfidzsulaimaniyah.org/">Beranda</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/berita">Berita</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/tentang-kami">Tentang Kami</a></li>
                 <li><a href="https://tahfidzsulaimaniyah.org/cabang.html">Cabang</a></li>
-                <li><a href="https://tahfidzsulaimaniyah.org/gallery.html">Gallery</a></li>
-                <li><a href="https://pendaftaran.tahfidzsulaimaniyah.org/">Pendaftaran</a></li>
+                <li><a href="https://tahfidzsulaimaniyah.org/galeri">Galeri</a></li>
+                <li><a href="https://gpendaftaran.tahfidzsulaimaniyah.org/">Pendaftaran</a></li>
                 <li><a href="https://tahfidzsulaimaniyah.org/kontak.html">Kontak</a></li>
             </ul>
         </nav>
@@ -39,9 +43,7 @@
             <!-- <h3 id="waktu_salam"></h3> -->
             <h3 class="internet">internet</h3>
             <h3 class="sulaimaniyahyogya">SULAIMANIYAH <span>Yogyakarta</span></h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, expedita. Aliquid nulla labore
-                libero. Doloribus eum architecto, reiciendis quis fugiat, voluptatum quibusdam libero, deleniti
-                asperiores iure sunt nulla voluptatibus similique.<br><span class="typing-text"></span></p>
+            <p class="typing-text"></p>
         </div>
         <div class="image container">
             <div class="container">
@@ -51,6 +53,30 @@
                             <div class="img d-flex align-items-center justify-content-center" style="background-image:url(./img/logodky.png)"></div>
                             <h3 class="text-center mb-0">Hoş Geldiniz!</h3>
                             <p class="text-center">Login untuk menikmati layanan internet Sulaimaniyah Yogyakarta</p>
+                            $(if error)
+                            <div id="notice" class="notice"> Error: Mohon Periksa Informasi Login Anda
+                                <script type="text/javascript">
+                                    var error = "$(error)";
+                                    var error1 = "user $(username) has reached uptime limit";
+                                    var error2 = "user $(username) has reached traffic limit";
+                                    var error3 = "no valid profile found";
+                                    var error4 = "invalid username or password";
+                                    var error5 = "user &lt;$(username)&gt; not found";
+                                    var error6 = "simultaneous session limit reached";
+                                    if (error == error1 || error == error2 || error == error3) {
+                                        window.location.href = "expired.html";
+                                    } else if (error == error4) {
+                                        document.getElementById("notice").innerHTML = "Error: Mohon Periksa Informasi Login Anda, Username atau Password Salah";
+                                    } else if (error == error5) {
+                                        document.getElementById("notice").innerHTML = "Error: Username Tidak Ditemukan";
+                                    } else if (error == error6) {
+                                        document.getElementById("notice").innerHTML = "Error: Jumlah Perangkat Login Telah Mencapai Maksimum";
+                                    } else {
+                                        document.getElementById("notice").innerHTML = "$(error)";
+                                    } 
+                                </script>
+                            </div>
+                            $(endif)
                             <form class="login-form" name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
                                 <input type="hidden" name="dst" value="$(link-orig)" />
                                 <input type="hidden" name="popup" value="true" />
@@ -88,30 +114,6 @@
                                 </div>
                             </div>
                             $(endif)
-                            $(if error)
-                            <div id="notice" class="notice"> Mohon Periksa Informasi Login Anda
-                                <script type="text/javascript">
-                                    var error = "$(error)";
-                                    var error1 = "user $(username) has reached uptime limit";
-                                    var error2 = "user $(username) has reached traffic limit";
-                                    var error3 = "no valid profile found";
-                                    var error4 = "invalid username or password";
-                                    var error5 = "user &lt;$(username)&gt; not found";
-                                    var error6 = "simultaneous session limit reached";
-                                    if (error == error1 || error == error2 || error == error3) {
-                                        window.location.href = "expired.html";
-                                    } else if (error == error4) {
-                                        document.getElementById("notice").innerHTML = "Mohon Periksa Informasi Login Anda";
-                                    } else if (error == error5) {
-                                        document.getElementById("notice").innerHTML = "Username Tidak Ditemukan";
-                                    } else if (error == error6) {
-                                        document.getElementById("notice").innerHTML = "Jumlah Session Login Telah Dibatasi";
-                                    } else {
-                                        document.getElementById("notice").innerHTML = "$(error)";
-                                    } 
-                                </script>
-                            </div>
-                            $(endif)
                             $(if chap-id)
                             <form name="sendin" action="$(link-login-only)" method="post">
                                 <input type="hidden" name="username" />
@@ -143,7 +145,7 @@
         var password = document.login.password;
         function setuser() {
             var user = username.value;
-            user = user.toLowerCase(); // voucher huruf kecil
+            user = user.toLowerCase(); // password huruf kecil
             username.value = user;
         }
         function setpass() {

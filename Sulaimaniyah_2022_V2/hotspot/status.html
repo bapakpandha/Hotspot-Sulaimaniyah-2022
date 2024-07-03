@@ -380,7 +380,7 @@
                 </table>
                 <table class="table2">
                     <tr>
-                        <td align="right" style="width: 40%;">IP <i class="icon icon-sitemap">&#xf0e8;</i> </td>
+                        <td align="right" style="width: 45%;">IP <i class="icon icon-sitemap">&#xf0e8;</i> </td>
                         <td>$(ip)</td>
                     </tr>
                     <tr>
@@ -392,6 +392,21 @@
                         <td align="right">Sisa Kuota <i class="icon icon-battery-3">&#xf241;</i> </td>
                         <td>
                             <script language="JavaScript">document.write(readablizeBytes($(remain-bytes-out)));</script>
+                        </td>
+                    </tr>
+                    $(endif)
+                    $(if login-by == 'trial')
+                    <tr>
+                        <td align="right">Penggunaan <i class="icon icon-clock">&#xe80f;</i> </td>
+                        <td>
+                            <script language="JavaScript">document.write(readablizeBytes(314572800-($(remain-bytes-out))));</script>
+                        </td>
+                    </tr>
+                    $(elif login-by != 'mac')
+                    <tr>
+                        <td align="right">Penggunaan <i class="icon icon-clock">&#xe80f;</i> </td>
+                        <td>
+                            <script language="JavaScript">document.write(readablizeBytes(10995116277760-($(remain-bytes-out))));</script>
                         </td>
                     </tr>
                     $(endif)

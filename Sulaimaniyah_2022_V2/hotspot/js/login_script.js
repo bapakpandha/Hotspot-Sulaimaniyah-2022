@@ -5,6 +5,7 @@ $(document).ready(function(){
         $('.navbar').toggleClass('nav-toggle');
     });
 
+    //scroll navbar sticky fluid
     $(window).on('scroll load',function(){
         $('#menu').removeClass('fa-times');
         $("#menu").html('<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z" clip-rule="evenodd"/></svg>')
@@ -39,6 +40,7 @@ $(document).ready(function(){
         },500, 'linear')
     });
 
+    //navbar mobile toogle
     $(function () {
         $("#svg_menu").click(function () {
             if ($("#menu").hasClass('svg-active')) {
@@ -52,3 +54,26 @@ $(document).ready(function(){
         });
     });
 });
+
+var typewriter = new Typewriter(".typing-text", {
+    loop: true,
+    delay: 20,
+    deleteSpeed: 0.01
+  });
+  
+  function fade() {
+    $('.typing-text').html("");
+}
+
+  typewriter
+    .pauseFor(100)
+    .typeString('"Intelektual yang sejati adalah orang yang mengajarkan dan menyampaikan ilmu yang dimilikinya"<br><figcaption>&mdash; Hz. Ustazımız, <cite>Syekh Sulaiman Hilmi Tunahan Q.S</cite>  </figcaption>')
+    .pauseFor(1500)
+    .deleteAll(1)
+    .typeString('"Jangan lalai dan tetaplah belajar untuk menuntut ilmu karena hari-hari yang telah berlalu tidak akan kembali lagi"<br><figcaption>&mdash; Hz. Ustazımız, <cite>Syekh Sulaiman Hilmi Tunahan Q.S</cite>  </figcaption>')
+    .pauseFor(1500)
+    .deleteAll(1)
+    .typeString('"Jangan biasakan untuk memberi perintah. Aku tidak pernah memerintah istriku walaupun hanya untuk membawakan segelas air. Memerintah sebenarnya hanyalah membunuh jiwa dari kata-kata tersebut. Menyarankan sesuatu akan lebih efektif daripada sebuah perintah. Sebagai contoh: “Anakku kan tidak merokok, ya kan?”"<br><figcaption>&mdash; Hz. Ustazımız, <cite>Syekh Sulaiman Hilmi Tunahan Q.S</cite>  </figcaption>')
+    .deleteAll(1)
+    .typeString()
+    .start();
