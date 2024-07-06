@@ -1,5 +1,7 @@
 ﻿# HALAMAN LOGIN MIKROTIK ASRAMA MAHASISWA SULAIMANIYAH YOGYAKARTA
 
+  [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html) [![Kotlin](https://img.shields.io/badge/kotlin-1.3.72-blue.svg)](http://kotlinlang.org) [![Gradle](https://img.shields.io/badge/gradle-4.0.0-%2366DCB8.svg)](https://developer.android.com/studio/releases/gradle-plugin)
+
 Repository ini berisi file-file yang diperlukan untuk membangun halaman login Mikrotik yang digunakan di Asrama Mahasiswa Sulaimaniyah Yogyakarta. Repository ini mencakup dokumen HTML, CSS, dan JavaScript dasar yang umumnya digunakan pada halaman login Mikrotik, serta beberapa vendor library tambahan seperti typewriter.js, particle.js, dan jQuery untuk meningkatkan interaktivitas dan tampilan halaman login.
 
 ![enter image description here](https://raw.githubusercontent.com/bapakpandha/bapakpandha.github.io/main/images/login_page.webp)
