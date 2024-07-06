@@ -133,7 +133,7 @@ Repository ini berisi file-file yang diperlukan untuk membangun halaman login Mi
 
 1. Clone repository ini ke komputer Anda:
     ```sh
-    git clone https://github.com/username/repo-name.git
+    git clone https://github.com/bapakpandha/Hotspot-Sulaimaniyah-2022.git
     ```
 2. Buka file `login.html` di folder `hotspot` di browser Anda untuk melihat halaman login.
 
