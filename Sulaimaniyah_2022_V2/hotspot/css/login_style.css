@@ -853,9 +853,7 @@ button:not(:disabled),
     padding-right: 1%;
     padding-bottom: 2rem;
   }
-  .content {
-    display: none !important;
-  }
+
   header .navbar ul li a {
     font-size: 1.4rem !important;
 }
@@ -863,6 +861,13 @@ header .navbar ul li {
   width: 15rem;
 }
 }
+
+@media (max-width:768px) {
+  .content {
+    display: none !important;
+  }   
+}
+
 @media (min-width:768px) and (max-width:1365px) {
   .col-md-6 {
     -webkit-box-flex: 0;
